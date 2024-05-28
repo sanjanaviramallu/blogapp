@@ -1,0 +1,53 @@
+.article-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.article-card {
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: #263238; /* Dark background */
+    color: #ffffff; /* White text */
+    padding: 25px;
+    text-align: justify;
+    border-radius: 8px;
+}
+
+.article-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+}
+
+.article-header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.article-content {
+    white-space: pre-line;
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font */
+}
+
+.comment-form {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.comment-input {
+    width: calc(100% - 120px);
+    margin-right: 20px;
+}
+
+.comment-btn {
+    width: 120px;
+    background-color: #d32f2f; /* Red button */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,68 @@
+/* Container for the navbar */
+.navbar {
+    background-color: var(--light-olive); /* Light olive background color */
+    padding: 10px 20px; /* Padding around the navbar */
+    border-bottom: 2px solid var(--dark-olive); /* Bottom border for distinction */
+}
+
+/* Navbar items */
+.navbar-nav .nav-item {
+    margin: 0 15px; /* Spacing between nav items */
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+    color: rgb(0, 0, 0); /* White color for links */
+    font-size: 1.1rem; /* Slightly larger font size */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--dark-olive); /* Dark olive color on hover */
+}
+
+/* Navbar brand (if any) */
+.navbar-brand {
+    color: rgb(90, 85, 85);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navbar toggler for mobile view */
+.navbar-toggler {
+    border: none; /* Remove border */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-nav .nav-item {
+        margin: 10px 0; /* Adjust margin for smaller screens */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem; /* Smaller font size for smaller screens */
+    }
+}
+
+/* Username and userType styling */
+.nav-link .lead {
+    color: #994570; /* Specific color for username */
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    font-family: fantasy;
+}
+
+.nav-link .lead sup {
+    color: var(--dark-green); /* Dark green for userType */
+    font-size: 1rem;
+}
+
+/* Signout button styling */
+.nav-link.signout {
+    color: var(--light-grey); /* Light grey color for signout */
+}

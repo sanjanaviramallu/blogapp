@@ -1,0 +1,22 @@
+.article-card {
+    background-color: #1a1a1a; /* Dark background color for card */
+    color: #e0e0e0; /* Light text color */
+    padding: 30px; /* Increased padding */
+    text-align: left; /* Left align text */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.article-form {
+    display: block; /* Block display */
+    margin: 20px auto; /* Center align form */
+}
+
+.publish-btn {
+    margin-top: 30px; /* Increased margin for the Publish button */
+    background-color: #ff9800; /* Bright button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,111 @@
+### user api requests
+
+### registration
+POST http://localhost:5000/user-api/user
+Content-Type: application/json
+
+{
+    "userType":"user",
+    "username":"saketh",
+    "password":"saketh",
+    "email":"saketh@gmail.com"
+}
+
+### login
+POST http://localhost:5000/user-api/login
+Content-Type: application/json
+
+{
+    "userType":"user",
+    "username":"saketh",
+    "password":"saketh"
+}
+
+### reading articles of all users
+GET http://localhost:5000/user-api/articles
+
+### writing comments
+POST http://localhost:5000/user-api/comment
+Content-Type: application/json
+
+{
+    "articleid":"1708955785",
+    "username":"saketh",
+    "comment":"good article"
+}
+
+
+
+### author api requests
+
+### registration
+POST http://localhost:5000/author-api/author
+Content-Type: application/json
+
+{
+    "userType":"author",
+    "username":"yamsanii",
+    "password":"yamsani",
+    "email":"yamsani@gmail.com"
+}
+
+### login
+POST http://localhost:5000/author-api/login
+Content-Type: application/json
+
+{
+    "userType":"author",
+    "username":"yamsani",
+    "password":"yamsani"
+}
+
+### add new artcile
+post http://localhost:5000/author-api/article
+Content-Type: application/json
+
+{
+    "articleid":"{{$timestamp}}",
+    "title":"fundamentals of js",
+    "category":"programming",
+    "content":"zxcvbnm",
+    "dateofcreation":"{{$datetime iso8601}}",
+    "dateofmodification":"{{$datetime iso8601}}",
+    "username":"yamsani",
+    "comments":[],
+    "status":true
+}
+
+### update article by author
+put http://localhost:5000/author-api/article
+Content-Type: application/json
+
+{
+    "articleid":"1708955785",
+    "title":"fundamentals of js",
+    "category":"programming",
+    "content":"zxcvbnm",
+    "dateofcreation":"2024-02-26T13:56:25.896Z",
+    "dateofmodification":"{{$datetime iso8601}}",
+    "username":"yamsani",
+    "comments":[],
+    "status":true
+}
+
+### soft delete artcile by articleid
+put http://localhost:5000/author-api/article/1708955785
+Content-Type: application/json
+
+{
+    "articleid":"1708955785",
+    "title":"fundamentals of js",
+    "category":"programming",
+    "content":"zxcvbnm",
+    "dateofcreation":"2024-02-26T13:56:25.896Z",
+    "dateofmodification":"{{$datetime iso8601}}",
+    "username":"yamsani",
+    "comments":[],
+    "status":false
+}
+
+### get article of same author by username
+get http://localhost:5000/author-api/article/yamsani
