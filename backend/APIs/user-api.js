@@ -5,6 +5,8 @@ const expressAsyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const verifyToken = require("../Middlewares/verifytoken");
+const { ObjectId } = require("mongodb");
+
 
 let userCollection;
 let articleCollection;
@@ -78,11 +80,14 @@ userApp.post(
   expressAsyncHandler(async (req, res) => {
     //get user comment obj
     const userComment = req.body;
-    const articleIdFromUrl=(+req.params.articleId);
+    const articleIdFromUrl=(req.params.articleId);
+    console.log(userComment,articleIdFromUrl);
+    const existing = await articleCollection.find({_id : new ObjectId(articleIdFromUrl)}).toArray();
+    console.log(existing);    
     //insert userComment object to comments array of article by id
-    let result = await articleCollection.updateOne(
-      { articleId: articleIdFromUrl},
-      { $addToSet: { comments: userComment } }
+    const result = await articleCollection.updateOne(
+      { _id: new ObjectId(articleIdFromUrl)},
+      { $push: { comments: userComment } }
     );
     console.log(result);
     res.send({ message: "Comment posted" });

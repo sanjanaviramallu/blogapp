@@ -29,7 +29,7 @@ mongoClient.connect(process.env.db_url)
 
 //parsing body of req
 app.use(exp.json())
-
+app.use(cors())
 
 const userApp=require('./APIs/user-api')
 const authorApp=require('./APIs/author-api')

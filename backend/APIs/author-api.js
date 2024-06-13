@@ -5,6 +5,7 @@ const expressAsyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const verifyToken = require("../Middlewares/verifytoken");
+const { ObjectId } = require("mongodb");
 
 authorApp.use(exp.json());
 
@@ -103,18 +104,18 @@ authorApp.put(
 //delete an article by article ID
 authorApp.put('/article/:articleid',verifyToken,expressAsyncHandler(async(req,res)=>{
   //get articleId from url
-  const artileIdFromUrl=(+req.params.articleid);
+  const articleIdFromUrl=(req.params.articleid);
+  console.log(articleIdFromUrl);
    //get article 
    const articleToDelete=req.body;
 
-   if(articleToDelete.status===true){
-      let modifiedArt= await articleCollection.findOneAndUpdate({articleId:artileIdFromUrl},{$set:{...articleToDelete,status:false}},{returnDocument:"after"})
-      res.send({message:"Article deleted",payload:modifiedArt.status})
-   }
-   if(articleToDelete.status===false){
-       let modifiedArt= await articleCollection.findOneAndUpdate({articleId:artileIdFromUrl},{$set:{...articleToDelete,status:true}},{returnDocument:"after"})
-       res.send({message:"Article restored",payload:modifiedArt.status})
-   }
+   const result = await articleCollection.deleteOne({ _id: new ObjectId(articleIdFromUrl) });
+      console.log(result);
+      if (result.deletedCount === 1) {
+        res.send({ message: "Article deleted" });
+      } else {
+        res.status(404).send({ message: "Article not found" });
+      }
 }))
 
 

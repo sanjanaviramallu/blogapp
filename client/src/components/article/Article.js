@@ -31,7 +31,7 @@ function Article() {
     let art={...currentArticle};
     delete art._id;
     console.log("...")
-    let res=await axiosWithToken.put(`http://localhost:5000/author-api/article/${currentArticle.articleid}`,art)
+    let res=await axiosWithToken.put(`http://localhost:5000/author-api/article/${currentArticle._id}`,art)
     if(res.data.message==='Article deleted'){
       setCurrentArticle({...currentArticle,status:res.data.payload})
     }
@@ -46,9 +46,10 @@ function Article() {
     }
   };
   const writeComment = async (commentObj) => {
+    console.log(currentArticle);
     try {
       const res = await axiosWithToken.post(
-        `http://localhost:5000/user-api/comment/${state.articleId}`,
+        `http://localhost:5000/user-api/comment/${currentArticle._id}`,
         commentObj
       );
       if (res.data.message === "Comment posted") {

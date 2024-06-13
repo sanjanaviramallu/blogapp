@@ -4,6 +4,8 @@ import axios from "axios";
 
 //make http req using redux-thunk middleware
 export const userAuthorLoginThunk=createAsyncThunk("user-auhtor-login", async (userCredObj, thunkApi) => {
+
+  console.log(userCredObj);
   try {
     if (userCredObj.userType === "user") {
       const res = await axios.post(

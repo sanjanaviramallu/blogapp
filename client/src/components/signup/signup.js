@@ -16,6 +16,7 @@ function Signup() {
   const navigate = useNavigate(); // Use useNavigate to navigate to different routes
 
   async function onSignUpFormSubmit(userObj) {
+    console.log(userObj);
     const endpoint =
       userObj.userType === "author"
         ? "http://localhost:5000/author-api/author"

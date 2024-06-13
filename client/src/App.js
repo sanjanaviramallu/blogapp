@@ -82,7 +82,7 @@ function App() {
   }])
 
   return (
-    <div>
+    <div className='bg'>
       <RouterProvider router={browserRouter} />
     </div>
   );
